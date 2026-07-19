@@ -1732,22 +1732,22 @@ input, select, textarea {
         max-width: 100% !important;
     }
     #header * {
-        color: #000000 !important;
-        border-color: #000000 !important;
+        color: #ffffff !important;
+        border-color: #ffffff !important;
         font-weight: 700 !important; 
     }
     #header *:before,
     #header *:after {
-        background-color: #000000 !important;
-        border-color: #000000 !important;
+        background-color: #ffffff !important;
+        border-color: #ffffff !important;
     }
     #header .icon:before,
     #header .icon:after {
         background-color: transparent !important; 
     }
     #header nav ul li a:hover {
-        background-color: rgba(0, 0, 0, 0.08) !important;
-        color: #000000 !important;
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
     }
 
     /* 3. IMMUTABLE CEILING BASELINE */
@@ -1850,63 +1850,72 @@ input, select, textarea {
         body:not(.is-article-visible) {
             overflow: hidden !important; 
         }
-		/* ==========================================================================
-       9. FOOTER TYPOGRAPHY: Crisp Black Legal & Privacy Links
-       ========================================================================== */
-    #footer,
-    #footer * {
-        color: #000000 !important;
-        font-weight: 700 !important; /* Keeps it consistent with your bold header */
-    }
+        
+        /* ==========================================================================
+           9. FOOTER TYPOGRAPHY: Crisp White Legal & Privacy Links
+           ========================================================================== */
+        #footer,
+        #footer * {
+            color: #ffffff !important;
+            font-weight: 700 !important; /* Keeps it consistent with your bold header */
+        }
 
-    /* Styles the clickable links (Legal Notice / Privacy Policy) */
-    #footer a {
-        border-bottom: dotted 1px #000000 !important; /* Keeps a clean black underline */
-        transition: color 0.2s ease, border-bottom-color 0.2s ease !important;
-    }
+        /* Styles the clickable links (Legal Notice / Privacy Policy) */
+        #footer a {
+            border-bottom: dotted 1px rgba(255, 255, 255, 0.5) !important; /* Keeps a clean white underline */
+            transition: color 0.2s ease, border-bottom-color 0.2s ease !important;
+        }
 
-    /* Adds a smooth, elegant fade when someone hovers over the links */
-    #footer a:hover {
-        color: rgba(0, 0, 0, 0.60) !important;
-        border-bottom-color: transparent !important;
-    }
-	/* ==========================================================================
-       10. MACRO LIFT: Elevating the Entire Landing Block
-       ========================================================================== */
-    /* Hoists the entire wrapper (Diamond down to the Privacy Footer) up by roughly 
-       half an inch as a single, unified block—only on the home page! */
-    body:not(.is-article-visible) #wrapper {
-        transform: translateY(-6vh) !important; 
+        /* Adds a smooth, elegant fade when someone hovers over the links */
+        #footer a:hover {
+            color: rgba(255, 255, 255, 0.60) !important;
+            border-bottom-color: transparent !important;
+        }
+        
+        /* ==========================================================================
+           10. MACRO LIFT: Elevating the Entire Landing Block
+           ========================================================================== */
+        /* Hoists the entire wrapper (Diamond down to the Privacy Footer) up by roughly 
+           half an inch as a single, unified block—only on the home page! */
+        body:not(.is-article-visible) #wrapper {
+            transform: translateY(-6vh) !important; 
+        }
+
+        /* ==========================================================================
+           11. LANGUAGE SWITCHER: Crisp White Typography & Dotted Links
+           ========================================================================== */
+        
+        /* 1. The Container & Divider Pipes (|) */
+        #lang-switcher {
+            color: #ffffff !important;
+            font-weight: 400 !important; /* Returns the pipes to a normal, elegant weight */
+        }
+
+        /* 2. The Active Language */
+        #lang-switcher strong {
+            color: #ffffff !important;
+            font-weight: 700 !important; /* Keeps ONLY your current language bold */
+        }
+
+        /* 3. The Clickable Language Links */
+        #lang-switcher a {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 400 !important; /* Un-bolds the inactive languages */
+            text-decoration: none !important;
+            border-bottom: dotted 1px rgba(255, 255, 255, 0.5) !important; /* Restores the signature dotted line! */
+            transition: color 0.2s ease, border-bottom-color 0.2s ease !important;
+        }
+
+        /* 4. Elegant Hover Fade */
+        #lang-switcher a:hover {
+            color: rgba(255, 255, 255, 0.50) !important;
+            border-bottom-color: transparent !important; /* Smoothly fades the underline on hover */
+        }
     }
 
     /* ==========================================================================
-       11. LANGUAGE SWITCHER: Crisp Black Typography & Dotted Links
+       12. BACKGROUND SEAM FIX: Matching the Kintsugi Grey
        ========================================================================== */
-    
-    /* 1. The Container & Divider Pipes (|) */
-    #lang-switcher {
-        color: #000000 !important;
-        font-weight: 400 !important; /* Returns the pipes to a normal, elegant weight */
-    }
-
-    /* 2. The Active Language */
-    #lang-switcher strong {
-        color: #000000 !important;
-        font-weight: 700 !important; /* Keeps ONLY your current language bold */
-    }
-
-    /* 3. The Clickable Language Links */
-    #lang-switcher a {
-        color: #000000 !important;
-        font-weight: 400 !important; /* Un-bolds the inactive languages */
-        text-decoration: none !important;
-        border-bottom: dotted 1px #000000 !important; /* Restores the signature dotted line! */
-        transition: color 0.2s ease, border-bottom-color 0.2s ease !important;
-    }
-
-    /* 4. Elegant Hover Fade */
-    #lang-switcher a:hover {
-        color: rgba(0, 0, 0, 0.50) !important;
-        border-bottom-color: transparent !important; /* Smoothly fades the underline on hover */
-    }
+    body, #bg {
+        background-color: #808080 !important; 
     }
