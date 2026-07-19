@@ -1820,6 +1820,14 @@ input, select, textarea {
         transition: opacity 0.3s ease !important;
     }
 
+    /* 💥 PHANTOM LINE EXTRACTOR: Vaporizes template-injected decorative pseudo-lines */
+    body.is-article-visible #main article:before,
+    body.is-article-visible #main article:after {
+        display: none !important;
+        content: none !important;
+        background: transparent !important;
+    }
+
     body.is-article-visible #main article.active {
         display: block !important;
         position: relative !important;
@@ -1844,6 +1852,10 @@ input, select, textarea {
         opacity: 1 !important;
         z-index: 100 !important;
     }
+    body.is-article-visible #main .close:before,
+    body.is-article-visible #main .close:after {
+        border: 0 !important;
+    }
 
     /* 7. DESKTOP SHIELD */
     @media screen and (min-width: 736px) {
@@ -1852,31 +1864,29 @@ input, select, textarea {
         }
         
         /* ==========================================================================
-           9. FOOTER TYPOGRAPHY: Crisp White Legal & Privacy Links
+           9. FOOTER TYPOGRAPHY: Elegant Uniform Muted Baseline
            ========================================================================== */
         #footer,
         #footer * {
-            color: #ffffff !important;
+            color: rgba(255, 255, 255, 0.5) !important; /* Mutes ALL footer text uniformly */
             font-weight: 700 !important; /* Keeps it consistent with your bold header */
         }
 
-        /* Styles the clickable links (Legal Notice / Privacy Policy) */
+        /* Styles the clickable links (Legal Notice / Privacy Policy / HTML5 UP) */
         #footer a {
-            border-bottom: dotted 1px rgba(255, 255, 255, 0.5) !important; /* Keeps a clean white underline */
+            border-bottom: dotted 1px rgba(255, 255, 255, 0.3) !important; /* Subtle underline */
             transition: color 0.2s ease, border-bottom-color 0.2s ease !important;
         }
 
-        /* Adds a smooth, elegant fade when someone hovers over the links */
+        /* Lights up cleanly to pure white only when hovered */
         #footer a:hover {
-            color: rgba(255, 255, 255, 0.60) !important;
-            border-bottom-color: transparent !important;
+            color: #ffffff !important;
+            border-bottom-color: #ffffff !important;
         }
         
         /* ==========================================================================
            10. MACRO LIFT: Elevating the Entire Landing Block
            ========================================================================== */
-        /* Hoists the entire wrapper (Diamond down to the Privacy Footer) up by roughly 
-           half an inch as a single, unified block—only on the home page! */
         body:not(.is-article-visible) #wrapper {
             transform: translateY(-6vh) !important; 
         }
@@ -1884,38 +1894,110 @@ input, select, textarea {
         /* ==========================================================================
            11. LANGUAGE SWITCHER: Crisp White Typography & Dotted Links
            ========================================================================== */
-        
-        /* 1. The Container & Divider Pipes (|) */
         #lang-switcher {
             color: #ffffff !important;
-            font-weight: 400 !important; /* Returns the pipes to a normal, elegant weight */
+            font-weight: 400 !important; 
         }
 
-        /* 2. The Active Language */
         #lang-switcher strong {
             color: #ffffff !important;
-            font-weight: 700 !important; /* Keeps ONLY your current language bold */
+            font-weight: 700 !important; 
         }
 
-        /* 3. The Clickable Language Links */
         #lang-switcher a {
             color: rgba(255, 255, 255, 0.8) !important;
-            font-weight: 400 !important; /* Un-bolds the inactive languages */
+            font-weight: 400 !important; 
             text-decoration: none !important;
-            border-bottom: dotted 1px rgba(255, 255, 255, 0.5) !important; /* Restores the signature dotted line! */
+            border-bottom: dotted 1px rgba(255, 255, 255, 0.5) !important; 
             transition: color 0.2s ease, border-bottom-color 0.2s ease !important;
         }
 
-        /* 4. Elegant Hover Fade */
         #lang-switcher a:hover {
             color: rgba(255, 255, 255, 0.50) !important;
-            border-bottom-color: transparent !important; /* Smoothly fades the underline on hover */
+            border-bottom-color: transparent !important; 
         }
     }
 
     /* ==========================================================================
-       12. BACKGROUND SEAM FIX: Matching the Kintsugi Grey
+       12. BACKGROUND SEAM FIX: Matching the Extended Canvas Grey
        ========================================================================== */
     body, #bg {
-        background-color: #727070 !important; 
+        background-color: #626262 !important; 
     }
+	/* ==========================================================================
+   VAPORIZER PHASE 2: DESTROYING THE PERSISTENT BOTTOM LINE (WITH PERFECT X SHIELD)
+   ========================================================================== */
+
+/* 1. Crush all nested pseudo-elements inside the main container */
+body.is-article-visible #main *:before,
+body.is-article-visible #main *:after,
+body.is-article-visible #main article *:before,
+body.is-article-visible #main article *:after {
+    content: none !important;
+    display: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* 2. Completely eliminate any physical horizontal rules or divider tags */
+body.is-article-visible #main hr,
+body.is-article-visible #main article hr,
+body.is-article-visible #main .divider,
+body.is-article-visible #main [class*="separator"] {
+    display: none !important;
+    height: 0 !important;
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 3. Strip borders and dark overlay fills from any footer or bottom layout bars */
+body.is-article-visible #main footer,
+body.is-article-visible #main [class*="footer"],
+body.is-article-visible #main article footer {
+    border: 0 !important;
+    border-top: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* 4. Universal safety net: Clear bottom/top borders from all inner content blocks */
+body.is-article-visible #main > *,
+body.is-article-visible #main article > * {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+}
+
+/* 5. 🛡️ THE CLOSE BUTTON SHIELD: Rebuilds a crisp, un-bendable "X" icon */
+body.is-article-visible #main .close:before,
+body.is-article-visible #main .close:after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 1.2rem !important;    /* Exact length of the X blades */
+    height: 2px !important;      /* Sharp, premium thickness */
+    background-color: #ffffff !important;
+    border-radius: 0 !important; /* Flatly denies the circular blooming bug */
+    transition: background-color 0.2s ease !important;
+}
+
+/* Rotates the first line to a perfect 45-degree angle */
+body.is-article-visible #main .close:before {
+    transform: translate(-50%, -50%) rotate(45deg) !important;
+}
+
+/* Rotates the second line to a perfect counter-angle */
+body.is-article-visible #main .close:after {
+    transform: translate(-50%, -50%) rotate(-45deg) !important;
+}
+
+/* Premium touch: Makes the X gently fade on hover just like your links */
+body.is-article-visible #main .close:hover:before,
+body.is-article-visible #main .close:hover:after {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+}
