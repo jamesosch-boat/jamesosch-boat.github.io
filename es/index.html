@@ -122,26 +122,36 @@
 
     <!-- Contact Form -->
     <h3 style="text-align: center; border-bottom: none; margin-bottom: 1.5em;">Enviar un Mensaje</h3>
-    <form method="POST" name="contact" data-netlify="true">
-        <div class="fields">
-            <div class="field half">
-                <label for="name">Nombre</label>
-                <input type="text" name="name" id="name" />
-            </div>
-            <div class="field half">
-                <label for="email">Correo Electrónico</label>
-                <input type="text" name="email" id="email" />
-            </div>
-            <div class="field">
-                <label for="message">Mensaje</label>
-                <textarea name="message" id="message" rows="4"></textarea>
-            </div>
+    <form id="contactForm" action="https://formsubmit.co/ajax/james.osch@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="¡Nueva consulta de jamesosch.com (ES)!">
+    <input type="text" name="_honey" style="display:none">
+
+    <div class="fields">
+        <div class="field half">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" required />
         </div>
-        <ul class="actions" style="justify-content: center; margin-top: 1.5em;">
-            <li><input type="submit" value="Enviar Mensaje" class="primary" /></li>
-            <li><input type="reset" value="Restablecer" /></li>
-        </ul>
-    </form>
+        <div class="field half">
+            <label for="email">Correo electrónico</label>
+            <input type="email" name="email" id="email" required />
+        </div>
+        <div class="field">
+            <label for="message">Mensaje</label>
+            <textarea name="message" id="message" rows="4" required></textarea>
+        </div>
+    </div>
+    <ul class="actions" style="justify-content: center; margin-top: 1.5em;">
+        <li><input type="submit" value="Enviar mensaje" class="primary" /></li>
+        <li><input type="reset" value="Restablecer" /></li>
+    </ul>
+
+    <!-- Status Message -->
+    <div id="formStatus" 
+         data-success="✓ ¡Mensaje enviado con éxito!" 
+         data-error="Algo salió mal. Por favor, inténtelo de nuevo." 
+         style="display:none; text-align: center; margin-top: 1.5em; font-weight: bold;">
+    </div>
+</form>
 </article>
 
 						<!-- Elements -->
@@ -462,6 +472,40 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="../assets/js/breakpoints.min.js"></script>
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
+<!-- FormSubmit AJAX Script -->
+<script>
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
 
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          contactForm.reset();
+          formStatus.style.display = 'block';
+          formStatus.style.color = '#28a745'; // Green text
+          formStatus.innerHTML = formStatus.dataset.success;
+        } else {
+          formStatus.style.display = 'block';
+          formStatus.style.color = '#dc3545'; // Red text
+          formStatus.innerHTML = formStatus.dataset.error;
+        }
+      } catch (error) {
+        formStatus.style.display = 'block';
+        formStatus.style.color = '#dc3545';
+        formStatus.innerHTML = formStatus.dataset.error;
+      }
+    });
+  }
+</script>
 	</body>
 </html>
