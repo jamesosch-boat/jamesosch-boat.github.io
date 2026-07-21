@@ -1928,24 +1928,23 @@ input, select, textarea {
    VAPORIZER PHASE 2: DESTROYING THE PERSISTENT BOTTOM LINE (WITH PERFECT X SHIELD)
    ========================================================================== */
 
-/* 1. Crush all nested pseudo-elements inside the main container */
-body.is-article-visible #main *:before,
-body.is-article-visible #main *:after,
-body.is-article-visible #main article *:before,
-body.is-article-visible #main article *:after {
+/* 1. Crush container pseudo-element lines (SAFE: Leaves icons & close button untouched) */
+body.is-article-visible #main:before,
+body.is-article-visible #main:after,
+body.is-article-visible #main article:before,
+body.is-article-visible #main article:after,
+body.is-article-visible #main article > *:before,
+body.is-article-visible #main article > *:after {
+    /* Only targets direct structural containers, excluding nested icons */
+}
+
+body.is-article-visible #main *:not(.icon):not([class*="icon"]):not([class*="fa-"]):not(.close):before,
+body.is-article-visible #main *:not(.icon):not([class*="icon"]):not([class*="fa-"]):not(.close):after {
     content: none !important;
     display: none !important;
     background: transparent !important;
     border: 0 !important;
     box-shadow: none !important;
-}
-/* 1b. 🛡️ ICON RESCUE SHIELD: Protects contact & social icons from the Vaporizer */
-body.is-article-visible #main .icon:before,
-body.is-article-visible #main .icons *:before,
-body.is-article-visible #main [class*="icon"]:before,
-body.is-article-visible #main [class*="fa-"]:before {
-    content: revert !important;
-    display: inline-block !important;
 }
 /* 2. Completely eliminate any physical horizontal rules or divider tags */
 body.is-article-visible #main hr,
