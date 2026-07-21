@@ -1939,7 +1939,14 @@ body.is-article-visible #main article *:after {
     border: 0 !important;
     box-shadow: none !important;
 }
-
+/* 1b. 🛡️ ICON RESCUE SHIELD: Protects contact & social icons from the Vaporizer */
+body.is-article-visible #main .icon:before,
+body.is-article-visible #main .icons *:before,
+body.is-article-visible #main [class*="icon"]:before,
+body.is-article-visible #main [class*="fa-"]:before {
+    content: revert !important;
+    display: inline-block !important;
+}
 /* 2. Completely eliminate any physical horizontal rules or divider tags */
 body.is-article-visible #main hr,
 body.is-article-visible #main article hr,
