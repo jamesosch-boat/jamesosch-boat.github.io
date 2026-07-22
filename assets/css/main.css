@@ -1272,7 +1272,7 @@ input, select, textarea {
     #header * {
         color: #000000 !important;
         border-color: #000000 !important;
-        font-weight: 700 !important; 
+        
     }
 
     /* GLITCH FIX: Forces the vertical axis line and menu dividers to turn black */
@@ -2006,4 +2006,58 @@ body.is-article-visible #main .close:after {
 body.is-article-visible #main .close:hover:before,
 body.is-article-visible #main .close:hover:after {
     background-color: rgba(255, 255, 255, 0.5) !important;
+}
+/* ==========================================================================
+   CSS-ONLY MULTILINGUAL LOGO SWAP (JO.svg)
+   ========================================================================== */
+
+/* 1. Center the logo container elements */
+#header .logo {
+    display: -webkit-flex !important;
+    display: flex !important;
+    -webkit-align-items: center !important;
+    align-items: center !important;
+    -webkit-justify-content: center !important;
+    justify-content: center !important;
+}
+
+#header .logo .icon {
+    display: -webkit-flex !important;
+    display: flex !important;
+    -webkit-align-items: center !important;
+    align-items: center !important;
+    -webkit-justify-content: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* 2. Hide FontAwesome glyph and display white JO.svg */
+#header .logo .icon:before {
+    content: '' !important;
+    display: block !important;
+    width: 2.8rem !important;  /* Controls logo scale inside the circle */
+    height: 2.8rem !important;
+    background-image: url('../../images/JO.svg') !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    font-size: 0 !important;   /* Prevents icon font overflow */
+}
+
+/* 3. Mobile scaling adjustment */
+@media screen and (max-width: 736px) {
+    #header .logo .icon:before {
+        width: 2.3rem !important;
+        height: 2.3rem !important;
+    }
+}
+/* ==========================================================================
+   MOBILE TEXT OVERFLOW PROTECTION
+   ========================================================================== */
+h1, h2, h3, h4, p, a, .content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
 }
