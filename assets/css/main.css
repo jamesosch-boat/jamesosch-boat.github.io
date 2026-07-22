@@ -2110,3 +2110,29 @@ b, strong {
         letter-spacing: 0.1rem !important;
     }
 }
+/* ==========================================================================
+   MOBILE BUTTON MULTI-LINE & AUTO-HEIGHT FIX
+   ========================================================================== */
+@media screen and (max-width: 736px) {
+
+    /* 1. Allow buttons to grow vertically and wrap long titles cleanly */
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    button,
+    .button {
+        height: auto !important;
+        min-height: 2.75rem !important;
+        line-height: 1.35 !important;
+        white-space: normal !important;
+        padding: 0.75rem 1.25rem !important;
+        letter-spacing: 0.1rem !important; /* Slightly tighter tracking for phone screens */
+        
+        /* 2. Keep play icons & multi-line text perfectly centered together */
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+}
