@@ -2162,3 +2162,14 @@ b, strong {
         height: auto !important;
     }
 }
+/* Lock button widths & prevent text from wrapping */
+#header nav ul li {
+    flex: 1 1 0%;
+    min-width: 0;
+}
+
+#header nav ul li a {
+    white-space: nowrap;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
