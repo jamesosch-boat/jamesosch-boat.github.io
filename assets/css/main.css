@@ -2111,28 +2111,54 @@ b, strong {
     }
 }
 /* ==========================================================================
-   MOBILE BUTTON MULTI-LINE & AUTO-HEIGHT FIX
+   AGRESSIVE MOBILE BUTTON FIX
    ========================================================================== */
 @media screen and (max-width: 736px) {
 
-    /* 1. Allow buttons to grow vertically and wrap long titles cleanly */
-    input[type="submit"],
-    input[type="reset"],
-    input[type="button"],
-    button,
-    .button {
-        height: auto !important;
-        min-height: 2.75rem !important;
-        line-height: 1.35 !important;
-        white-space: normal !important;
-        padding: 0.75rem 1.25rem !important;
-        letter-spacing: 0.1rem !important; /* Slightly tighter tracking for phone screens */
-        
-        /* 2. Keep play icons & multi-line text perfectly centered together */
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
+    /* 1. Prevent parent list items from locking button width */
+    ul.actions, 
+    ul.actions li {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+        margin-left: 0 !important;
     }
 
+    /* 2. Target the button and ALL child elements/spans */
+    .button,
+    a.button,
+    button,
+    input[type="submit"] {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        
+        width: 100% !important;
+        height: auto !important;
+        min-height: 3rem !important;
+        
+        padding: 0.75rem 1rem !important;
+        line-height: 1.3 !important;
+        
+        /* Force wrapping & disable truncation */
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+    }
+
+    /* 3. Ensure nested spans or icons inherit text wrapping */
+    .button *, 
+    a.button * {
+        white-space: normal !important;
+        word-break: break-word !important;
+    }
+
+    /* 4. Fix icon line-height alignment */
+    .button::before,
+    a.button::before,
+    .button .icon {
+        line-height: inherit !important;
+        height: auto !important;
+    }
 }
